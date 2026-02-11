@@ -1,0 +1,24 @@
+# Python cache files (never needed in image)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local virtual environments & secrets
+venv/
+.env
+.env.*
+
+# Git & editor config
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Runtime data & logs
+# These are mounted as volumes at runtime
+data/
+logs/
+
+# OS-specific files
+.DS_Store

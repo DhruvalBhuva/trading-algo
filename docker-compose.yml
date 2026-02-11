@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  trading-bot:
+    # -----------------------------------------------
+    # Name of the running container
+    # -----------------------------------------------
+    container_name: trading_bot
+
+    # -----------------------------------------------
+    # Build image using Dockerfile in current folder
+    # -----------------------------------------------
+    build: .
+
+    # -----------------------------------------------
+    # Auto-restart container on crash or VPS reboot
+    # -----------------------------------------------
+    restart: unless-stopped
+
+    # -----------------------------------------------
+    # Load environment variables securely
+    # -----------------------------------------------
+    env_file:
+      - .env
+
+    # -----------------------------------------------
+    # Persist data & logs outside container
+    # -----------------------------------------------
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+    # -----------------------------------------------
+    # Docker-level log rotation (safety)
+    # -----------------------------------------------
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
