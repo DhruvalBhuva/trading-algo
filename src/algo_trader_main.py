@@ -21,7 +21,9 @@ from src.stretegies.yesterday_high_low import YesterdayHighLowStrategy
 
 def main():
     try:
+
         logger.info("=" * 40)
+        print("Algorithmic Trading Bot Started")
 
         ### ======= Initialize variables ======= ###
         client = CapitalClient(
