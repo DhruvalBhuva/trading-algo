@@ -28,4 +28,3 @@ if __name__ == "__main__":
     logger.error("This is a test error message")
     logger.critical("This is a test critical message")
     logger.debug("This is a test debug message (should not appear in INFO level)")
-    logger.exception("This is a test exception message")
