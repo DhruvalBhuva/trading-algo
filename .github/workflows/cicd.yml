@@ -111,6 +111,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /app
+            cd ${{ secrets.SERVER_PATH }}
             docker compose pull
             docker compose up -d
