@@ -2,37 +2,45 @@ version: "3.9"
 
 services:
   trading-bot:
-    # -----------------------------------------------
-    # Name of the running container
-    # -----------------------------------------------
+    # --------------------------------------------------
+    # Fixed container name for easy management
+    # --------------------------------------------------
     container_name: trading_bot
 
-    # -----------------------------------------------
-    # Build image using Dockerfile in current folder
-    # -----------------------------------------------
-    build: .
+    # --------------------------------------------------
+    # Docker image pulled from Docker Hub
+    # Built & pushed by GitHub Actions CI/CD
+    # --------------------------------------------------
+    image: dhruvabhuva/trading-algo:latest
 
-    # -----------------------------------------------
-    # Auto-restart container on crash or VPS reboot
-    # -----------------------------------------------
+    # --------------------------------------------------
+    # Always pull newest image when starting
+    # --------------------------------------------------
+    pull_policy: always
+
+    # --------------------------------------------------
+    # Restart automatically unless manually stopped
+    # (Ideal for trading bots & VPS reboots)
+    # --------------------------------------------------
     restart: unless-stopped
 
-    # -----------------------------------------------
-    # Load environment variables securely
-    # -----------------------------------------------
+    # --------------------------------------------------
+    # Load secrets & config from server-only .env file
+    # (Never commit .env to GitHub)
+    # --------------------------------------------------
     env_file:
       - .env
 
-    # -----------------------------------------------
-    # Persist data & logs outside container
-    # -----------------------------------------------
+    # --------------------------------------------------
+    # Persist important runtime data & logs
+    # --------------------------------------------------
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
 
-    # -----------------------------------------------
-    # Docker-level log rotation (safety)
-    # -----------------------------------------------
+    # --------------------------------------------------
+    # Prevent Docker logs from filling disk
+    # --------------------------------------------------
     logging:
       driver: json-file
       options:
