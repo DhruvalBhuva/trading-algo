@@ -22,7 +22,7 @@ services:
     # Restart automatically unless manually stopped
     # (Ideal for trading bots & VPS reboots)
     # --------------------------------------------------
-    restart: unless-stopped
+    restart: no
 
     # --------------------------------------------------
     # Load secrets & config from server-only .env file
