@@ -30,10 +30,16 @@ def main():
         print("Algorithmic Trading Bot Started")
 
         ### ======= Initialize variables ======= ###
+        # client = CapitalClient(
+        #     api_key=os.getenv("CAPITAL_DEMO_API_KEY"),
+        #     identifier=os.getenv("CAPITAL_IDENTIFIER"),
+        #     password=os.getenv("CAPITAL_PASSWORD"),
+        # )
+
         client = CapitalClient(
-            api_key=os.getenv("CAPITAL_DEMO_API_KEY"),
-            identifier=os.getenv("CAPITAL_IDENTIFIER"),
-            password=os.getenv("CAPITAL_PASSWORD"),
+            api_key="okyo14w4biBbzpdh",
+            identifier="dhruvalpatel2612@gmail.com",
+            password="Dhruv@!2612",
         )
 
         market_ops = MarketOps(client)
@@ -60,7 +66,8 @@ def main():
             (
                 account
                 for account in all_accounts
-                if account.get("accountId") == os.getenv("DEMO_ACCOUNT_ID")
+                # if account.get("accountId") == os.getenv("DEMO_ACCOUNT_ID")
+                if account.get("accountId") == "305224238893454494"
             ),
             None,
         )
