@@ -8,8 +8,8 @@ name: Build, Push & Deploy Trading Bot
 # ====================================================
 on:
   # Automatically run on every push to main branch
-  push:
-    branches: [main]
+  # push:
+  #   branches: [main]
 
   # Allow manual execution from GitHub UI
   workflow_dispatch:
