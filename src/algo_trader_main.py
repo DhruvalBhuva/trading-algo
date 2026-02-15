@@ -45,7 +45,7 @@ def main():
         client.login()
 
         ### ======= Fetch Epic ======= ###
-        markets = client.search_markets("GOLD")
+        markets = client.search_markets("BTC")
         if markets:
             epic_to_use = markets[0]["epic"]
             logger.info(f"Using epic: {epic_to_use}")
