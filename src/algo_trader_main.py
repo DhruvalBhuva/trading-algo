@@ -22,11 +22,12 @@ from src.stretegies.yesterday_high_low import YesterdayHighLowStrategy
 def main():
     try:
 
-        logger.info("=" * 40)
-        print("Algorithmic Trading Bot Started")
         print(f"API Key: {os.getenv('CAPITAL_DEMO_API_KEY')}")
         print(f"Account ID: {os.getenv('CAPITAL_IDENTIFIER')}")
         print(f"Account PWD: {os.getenv('CAPITAL_PASSWORD')}")
+
+        logger.info("=" * 40)
+        print("Algorithmic Trading Bot Started")
 
         ### ======= Initialize variables ======= ###
         client = CapitalClient(
