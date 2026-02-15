@@ -101,10 +101,23 @@ class CapitalClient:
     def login(self):
         """Login and store session expiry information."""
         try:
+            # Step 1: Get encryption key
+            logger.info(f"Requesting encryption key from {self.base_url}")
+            logger.info(
+                f"Using API key: {self.api_key[:10]}...{self.api_key[-4:]}"
+            )  # Masked
+
             r = requests.get(
                 f"{self.base_url}/session/encryptionKey",
                 headers={"X-CAP-API-KEY": self.api_key},
+                timeout=10,
             )
+
+            # Log response details
+            logger.info(f"Encryption key response status: {r.status_code}")
+            logger.info(f"Response headers: {dict(r.headers)}")
+            logger.info(f"Response body: {r.text[:200]}")  # First 200 chars
+
             r.raise_for_status()
 
             encryption_key = r.json()["encryptionKey"]
